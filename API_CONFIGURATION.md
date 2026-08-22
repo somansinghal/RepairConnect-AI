@@ -337,8 +337,13 @@ Searched all HTML / JS / CSS / JSON / Markdown / config for `OPENAI_API_KEY`, `G
 
 ## 15. What to configure next (ordered)
 
+<<<<<<< HEAD
+1. Create a Firebase project; add a **Web app**; copy its config into `js/firebase-config.js` (this flips the app from DEMO → LIVE). Also add the production domain **`repairconnect-ai.vercel.app`** to **Firebase Console → Authentication → Settings → Authorized domains** so Firebase Auth (including Google popup) works on Vercel.
+2. Enable **Email/Password** (and optionally **Google**) in Firebase Authentication; create the demo accounts (`demo@repairconnect.ai`, `judge@repairconnect.ai`) as normal user-level accounts with private passwords (never stored in this repo).
+=======
 1. Create a Firebase project; add a **Web app**; copy its config into `js/firebase-config.js` (this flips the app from DEMO → LIVE).
 2. Enable **Email/Password** (and optionally **Google**) in Firebase Authentication; create the demo accounts (`demo@repairconnect.ai`, `judge@repairconnect.ai`) as normal user-level accounts.
+>>>>>>> 28c9ed7f1c972dcc2dd6035eba09b3a09345a356
 3. Create Firestore + Storage buckets; deploy `firestore.rules` and `storage.rules`.
 4. Add a `firebase.json` (functions + rules targets) and deploy the Cloud Functions (`firebase deploy --only functions`).
 5. Set `OPENAI_API_KEY` + a verified `OPENAI_VISION_MODEL`, and `GROQ_API_KEY` + a verified `GROQ_VISION_MODEL` as Cloud Functions secrets.

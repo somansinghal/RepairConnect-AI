@@ -93,7 +93,11 @@ Each screen documents: **Purpose / Main components / User actions / Information 
 ### 3.2 Login
 - **Purpose:** authenticate existing users (Firebase email/password + Google).
 - **Components:** "Welcome Back" heading, **Continue with Google** (real Firebase popup), email + password with **show/hide password** toggle, **Remember me** (LOCAL vs SESSION persistence), **Forgot password**, primary "Log in", link to Signup.
+<<<<<<< HEAD
+- **Demo access:** a clearly-labelled **DEMO ACCESS** block shows the two demo account emails **and their intentionally public test passwords** (with small copy buttons) plus **"Use Demo User" / "Use Demo Judge"** buttons that fill the form. Sign-in always goes through Firebase Authentication (no guest/bypass path). These are demo/test credentials only — no production passwords are ever shown.
+=======
 - **Demo access:** a clearly-labelled **DEMO ACCESS** block shows the public test credentials with **"Use Demo User" / "Use Demo Judge"** buttons that auto-fill the form (they do **not** bypass authentication), plus an "Explore demo without an account" path.
+>>>>>>> 28c9ed7f1c972dcc2dd6035eba09b3a09345a356
 - **Info:** inline validation errors; friendly Firebase error mapping.
 - **Loading:** button spinner during auth; duplicate submissions prevented.
 - **Error:** invalid credentials / network / popup-closed / popup-blocked mapped to friendly text.
@@ -216,7 +220,11 @@ Each screen documents: **Purpose / Main components / User actions / Information 
 | Screen | File | Status |
 |---|---|---|
 | Landing Page | `index.html` | ✅ Implemented |
+<<<<<<< HEAD
+| Login | `login.html` | ✅ Implemented / 🧩 Firebase auth (demo creds shown; no bypass) |
+=======
 | Login | `login.html` | ✅ Implemented / 🎭 Demo (simulated auth + "Try Demo") |
+>>>>>>> 28c9ed7f1c972dcc2dd6035eba09b3a09345a356
 | Signup | `signup.html` | ✅ Implemented / 🎭 Demo (simulated) |
 | Dashboard | `dashboard.html` | ✅ Implemented / 🎭 Demo (demo data) |
 | Damage Upload / Analysis | `analyze.html` | ✅ Implemented / 🎭 Demo (real upload UI; simulated AI step) |

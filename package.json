@@ -10,6 +10,10 @@
     "screenshots:mobile": "node scripts/screenshots.js --mobile",
     "record": "node scripts/record-demo.js",
     "test:unit": "node scripts/unit-test.js",
+<<<<<<< HEAD
+    "test:auth": "node scripts/auth-test.js",
+=======
+>>>>>>> 28c9ed7f1c972dcc2dd6035eba09b3a09345a356
     "audit": "node scripts/audit.js"
   },
   "devDependencies": {

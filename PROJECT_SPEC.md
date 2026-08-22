@@ -208,7 +208,11 @@ Status vocabulary used across all documentation: **✅ IMPLEMENTED** (working in
 | Profile | ✅ Implemented / 🎭 Demo | Fictional demo user |
 | Design system, animations, SEO, a11y, responsive | ✅ Implemented | Verified via `npm run audit` (0 overflow/errors) |
 | Screenshot + recording system | ✅ Implemented | `scripts/` (Playwright) |
+<<<<<<< HEAD
+| **Demo / Judge access** | ✅ Implemented / 🎭 Demo | Emails shown; passwords managed privately in Firebase Console |
+=======
 | **Demo / Judge access ("Try Demo")** | ✅ Implemented / 🎭 Demo | Clearly labelled; no real account |
+>>>>>>> 28c9ed7f1c972dcc2dd6035eba09b3a09345a356
 | Firebase Authentication | 🧩 Implemented (code) | Deploy + config required; demo fallback active |
 | Cloud Firestore | 🧩 Implemented (code) | Schema in DATABASE_SCHEMA.md; demo fallback active |
 | **Memcode** media storage | 🧩 Adapter only | **PRIMARY STORAGE** — official docs verification pending |
@@ -223,7 +227,11 @@ Status vocabulary used across all documentation: **✅ IMPLEMENTED** (working in
 ### 10.1 Demo functionality (current)
 - Upload/preview/validation of a damage image; simulated "Analyzing…" animation (clearly labelled as a demo simulation — no real AI request).
 - Full guided journey on demo data: diagnosis → repair-vs-replace → repairers → comparison → request (success state) → tracking timeline → assistant (canned answers) → dashboard/history.
+<<<<<<< HEAD
+- App pages require Firebase authentication (auth gate redirects unauthenticated visitors to Login; no guest/demo bypass).
+=======
 - "Try Demo" entry points on the landing page and login page (no account required, no real auth).
+>>>>>>> 28c9ed7f1c972dcc2dd6035eba09b3a09345a356
 
 ### 10.2 Backend (implemented in code — deployment requires credentials)
 The backend is **implemented in code and tested**: Firebase Authentication wiring, Firestore data service, and the secure AI backend — Cloud Functions `analyzeRepair` + `assistant` (OpenAI primary → Groq failover, structured normalization, deterministic recommendation, per-user rate limiting) — with Firestore rules. It activates once real project credentials are supplied and deployed (see BUILD_PLAN.md and README "Backend setup"). Memcode + Firebase Storage backup are a later phase.
@@ -235,12 +243,21 @@ Video analysis (conditional on model + storage support), PDF repair reports, pro
 
 ## 11. Demo & Judge Access
 
+<<<<<<< HEAD
+- Demo accounts are real **Firebase Authentication** accounts created manually in Firebase Console:
+  - **Demo User** — `demo@repairconnect.ai` (normal customer workflow)
+  - **Demo Judge** — `judge@repairconnect.ai` (reviewer workflow)
+- The two demo/judge **passwords are intentionally public test credentials** displayed in the login page's DEMO ACCESS block (with "Use Demo User" / "Use Demo Judge" buttons that fill the form). They are **not** production secrets and hold synthetic sample data only. Sign-in always goes through Firebase Authentication — there is no guest/demo bypass. No production passwords are ever stored or displayed.
+- Demo data is **clearly fictional**: demo user "Alex Demo", demo providers (FixPoint, TechCare, Device Doctor, VoltFix, GreenRepair Hub) are **not real businesses**; demo diagnosis is simulated, **not** real AI output.
+- Demo data is classified **🎭 DEMO / MOCK**. It provides **no** access to production data, credentials, or admin surfaces.
+=======
 - **"Try Demo"** button on the landing page and login page enters Demo Mode (sample data, no account).
 - **Fictional demo credentials** (illustrative for the simulated login UI — the form currently simulates success for any input; no real accounts exist and none are created during documentation):
   - **Demo User** — `demo@repairconnect.ai` / `Demo@12345` (normal customer workflow)
   - **Demo Repairer** — `repairer@repairconnect.ai` / `Repair@12345` (repairer-side workflow, if the UI supports it)
 - Demo data is **clearly fictional**: demo user "Alex Demo", demo providers (FixPoint, TechCare, Device Doctor, VoltFix, GreenRepair Hub) are **not real businesses**; demo diagnosis is simulated, **not** real AI output.
 - Demo mode is classified **🎭 DEMO / MOCK** until real authentication exists. It provides **no** access to production data, credentials, or admin surfaces.
+>>>>>>> 28c9ed7f1c972dcc2dd6035eba09b3a09345a356
 
 ---
 
