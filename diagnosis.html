@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="js/theme-init.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI Diagnosis — RepairConnect AI</title>
+  <meta name="description" content="View your AI-generated damage diagnosis: detected issue, severity, possible causes, confidence, and safe troubleshooting steps.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="canonical" href="https://repairconnect-ai.vercel.app/diagnosis.html">
+  <meta name="theme-color" content="#0A5FE0">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="RepairConnect AI">
+  <meta property="og:title" content="AI Diagnosis — RepairConnect AI">
+  <meta property="og:description" content="View your AI-generated damage diagnosis: detected issue, severity, possible causes, confidence, and safe troubleshooting steps.">
+  <meta property="og:url" content="https://repairconnect-ai.vercel.app/diagnosis.html">
+  <meta property="og:image" content="https://repairconnect-ai.vercel.app/assets/images/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="AI Diagnosis — RepairConnect AI">
+  <meta name="twitter:description" content="View your AI-generated damage diagnosis: detected issue, severity, possible causes, confidence, and safe troubleshooting steps.">
+  <meta name="twitter:image" content="https://repairconnect-ai.vercel.app/assets/images/og-image.png">
+  <link rel="icon" type="image/png" href="assets/images/favicon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <script>document.documentElement.classList.add('js');</script>
+</head>
+<body data-page="diagnosis">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">
+        <img src="assets/images/repairconnect-logo.png" alt="RepairConnect AI" class="brand-logo" width="480" height="347" decoding="async">
+      </a>
+      <nav class="main-nav" id="mainNav" aria-label="Primary">
+        <a class="nav-link" href="dashboard.html">Dashboard</a>
+        <a class="nav-link" href="analyze.html">Analyze</a>
+        <a class="nav-link" href="repairers.html">Repairers</a>
+        <a class="nav-link" href="tracking.html">Tracking</a>
+        <a class="nav-link" href="assistant.html">Assistant</a>
+      </nav>
+      <div class="header-actions">
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Theme: System" title="Theme: System — click to switch">
+          <svg class="icon i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+          <svg class="icon i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          <svg class="icon i-system" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        </button>
+        <span class="auth-area" id="authArea"></span>
+        <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mainNav">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+
+  <main id="main">
+    <div class="container page-head">
+      <nav class="crumb" aria-label="Breadcrumb">
+        <a href="dashboard.html">Dashboard</a><span class="sep">›</span><a href="analyze.html">Analyze</a><span class="sep">›</span><span>Diagnosis</span>
+      </nav>
+      <h1 style="margin-top:10px">AI Diagnosis</h1>
+    </div>
+
+    <section class="container" style="padding-bottom:64px">
+      <!-- Preliminary disclaimer -->
+      <div class="alert alert-info mb-24">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+        <div><strong>Preliminary AI assessment</strong><p>This is an AI-generated preliminary analysis based on a photo. It is not a professional diagnosis and cannot detect internal damage. Confirm with a professional before acting.</p></div>
+      </div>
+
+      <div class="diag-hero">
+        <!-- Left: analysis -->
+        <div class="card">
+          <div class="card-head">
+            <div>
+              <h2 class="card-title">AI Analysis</h2>
+              <p class="card-sub">Generated from your uploaded image + description.</p>
+            </div>
+            <span class="badge badge-info" id="dSource"><span class="dot"></span>Demo data</span>
+          </div>
+
+          <div id="diagLoader" class="hidden">
+            <div class="skeleton" style="height:96px;margin-bottom:16px"></div>
+            <div class="skeleton" style="height:40px;margin-bottom:12px"></div>
+            <div class="skeleton" style="height:40px"></div>
+          </div>
+
+          <div class="metric-grid" style="margin-bottom:20px">
+            <div class="metric">
+              <div class="m-lbl">Device</div>
+              <div class="m-val" style="font-size:1.05rem" id="dDevice">Laptop</div>
+            </div>
+            <div class="metric">
+              <div class="m-lbl">Severity</div>
+              <div class="m-val"><span class="sev-pill" id="dSeverity">High</span></div>
+            </div>
+            <div class="metric">
+              <div class="m-lbl">Confidence</div>
+              <div class="m-val" id="dConfidence">89%</div>
+              <div class="m-sub"><span class="badge" id="dConfBadge">High confidence</span></div>
+            </div>
+            <div class="metric">
+              <div class="m-lbl">Detected issue</div>
+              <div class="m-val" style="font-size:1rem" id="dIssue">Cracked display</div>
+            </div>
+          </div>
+
+          <h3 style="margin-bottom:8px">Visible observations</h3>
+          <ul class="cause-list" id="dObservations"></ul>
+
+          <h3 style="margin-bottom:8px">Possible causes</h3>
+          <ul class="cause-list" id="dCauses"></ul>
+
+          <hr class="divider">
+          <div class="row wrap" style="gap:12px">
+            <div class="metric" style="flex:1;min-width:150px">
+              <div class="m-lbl">Repair estimate</div>
+              <div class="m-val" style="font-size:1.1rem" id="dRepairEstimate">—</div>
+            </div>
+            <div class="metric" style="flex:1;min-width:150px">
+              <div class="m-lbl">Replacement estimate</div>
+              <div class="m-val" style="font-size:1.1rem" id="dReplacementEstimate">—</div>
+            </div>
+            <div class="metric" style="flex:1;min-width:150px">
+              <div class="m-lbl">Recommendation</div>
+              <div class="m-val" style="font-size:1.05rem" id="dVerdict">—</div>
+            </div>
+          </div>
+          <p class="small muted mt-8">Estimates are preliminary, deterministic demo values — see the Repair vs Replace page for the full comparison.</p>
+
+          <div class="alert alert-warn mt-16" id="dProInspection">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+            <div><strong>Professional inspection advised</strong><p>Visible damage can hide internal issues. A technician can confirm the exact fault.</p></div>
+          </div>
+        </div>
+
+        <!-- Right: troubleshooting + warnings -->
+        <div class="dash-stack">
+          <div class="card">
+            <h2 class="card-title mb-16">Try these first</h2>
+            <ol class="step-list" id="dSteps"></ol>
+          </div>
+
+          <div id="dWarnings"></div>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="card mt-24" style="display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap">
+        <div>
+          <h2 class="card-title">Next: is it worth repairing?</h2>
+          <p class="card-sub">See the estimated repair cost and a repair-vs-replace recommendation.</p>
+        </div>
+        <a class="btn btn-primary btn-lg" href="repair-decision.html" id="checkRepairabilityBtn">
+          Check Repairability
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-glow" aria-hidden="true"></div>
+    <div class="container">
+      <div class="footer-grid footer-grid--main">
+        <div class="footer-brand">
+          <a class="brand footer-brandlink" href="index.html" aria-label="RepairConnect AI home">
+            <span class="footer-logo-plate"><img src="assets/images/repairconnect-logo.png" alt="RepairConnect AI" class="footer-logo" width="480" height="347" loading="lazy" decoding="async"></span>
+          </a>
+          <p class="footer-tagline">Don't replace it. Repair it.</p>
+          <p class="footer-blurb">AI-powered repair guidance that helps you understand, troubleshoot, and connect with repair solutions.</p>
+                    <p class="footer-connect">Connect With Me</p>
+          <div class="footer-social">
+            <a class="social-btn-ic" href="https://www.linkedin.com/in/soman-singhal" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn (opens in a new tab)">
+              <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/></svg>
+            </a>
+            <a class="social-btn-ic" href="https://github.com/somansinghal" target="_blank" rel="noopener noreferrer" aria-label="GitHub (opens in a new tab)">
+              <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56 0-.27-.01-1.17-.02-2.12-3.2.7-3.88-1.36-3.88-1.36-.53-1.34-1.28-1.7-1.28-1.7-1.05-.72.08-.71.08-.71 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.23-1.28-5.23-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.69 5.38-5.25 5.67.41.35.78 1.05.78 2.12 0 1.53-.01 2.76-.01 3.14 0 .31.21.67.8.56A10.52 10.52 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg>
+            </a>
+            <a class="social-btn-ic" href="mailto:somansinghal06@gmail.com" aria-label="Email somansinghal06@gmail.com">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Product</h4>
+          <a href="analyze.html">Analyze</a>
+          <a href="dashboard.html">Dashboard</a>
+          <a href="repairers.html">Repairers</a>
+          <a href="tracking.html">Tracking</a>
+          <a href="assistant.html">AI Assistant</a>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+          <a href="privacy-policy.html">Privacy</a>
+          <a href="terms-of-service.html">Terms</a>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <a href="how-it-works.html">How It Works</a>
+          <a href="features.html">Features</a>
+          <a href="faq.html">FAQ</a>
+          <a href="repair-guide.html">Repair Guide</a>
+          <a href="sustainability.html">Sustainability</a>
+          <a href="https://github.com/somansinghal/RepairConnect-AI" target="_blank" rel="noopener noreferrer">GitHub Repository</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© <span id="year">2026</span> RepairConnect AI. All rights reserved.</span>
+        <span class="footer-bottom-links">
+          <a href="https://www.linkedin.com/in/soman-singhal" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <span class="sep">·</span>
+          <a href="https://github.com/somansinghal" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <span class="sep">·</span>
+          <a href="https://github.com/somansinghal/RepairConnect-AI" target="_blank" rel="noopener noreferrer">Repo</a>
+          <span class="sep">·</span>
+          <a href="mailto:somansinghal06@gmail.com">Email</a>
+          <span class="sep">·</span>
+          <a href="https://somansinghal.vercel.app" target="_blank" rel="noopener noreferrer">Portfolio</a>
+        </span>
+      </div>
+      <div class="footer-note">
+        ⚠️ AI diagnoses are preliminary and not a substitute for professional inspection. Demo providers shown are samples, not real businesses.
+      </div>
+    </div>
+  </footer>
+
+
+  <script src="js/ui.js"></script>
+  <script src="vendor/firebase/firebase-app-compat.js"></script>
+  <script src="vendor/firebase/firebase-auth-compat.js"></script>
+  <script src="vendor/firebase/firebase-firestore-compat.js"></script>
+  <script src="vendor/firebase/firebase-functions-compat.js"></script>
+  <script src="js/firebase-config.js"></script>
+  <script src="js/firebase-init.js"></script>
+  <script src="js/firestore.js"></script>
+  <script src="js/data-service.js"></script>
+
+  <script src="js/navigation.js"></script>
+  <script src="data/demo-diagnoses.js"></script>
+  <script src="js/diagnosis.js"></script>
+  <script src="js/animate.js"></script>
+  <script src="js/auth-guard.js"></script>
+  <script src="js/auth-ui.js"></script>
+  <script src="js/theme.js"></script>
+  <script src="js/errors.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

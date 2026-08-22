@@ -1,0 +1,111 @@
+/* ==========================================================================
+   RepairConnect AI — Global footer (modern SaaS style)
+   Linked on every page. Dark-navy base works in both light & dark themes.
+   ========================================================================== */
+
+.site-footer {
+  position: relative;
+  overflow: hidden;
+  margin-top: auto;
+  background: linear-gradient(165deg, #02182F 0%, #04244A 55%, #062A55 100%);
+  color: #AFC2DA;
+  border-top: 1px solid rgba(255, 255, 255, .06);
+}
+[data-theme="dark"] .site-footer { background: linear-gradient(165deg, #050B14 0%, #071527 60%, #0A1C33 100%); }
+
+/* soft glow accents */
+.footer-glow {
+  position: absolute; inset: 0; pointer-events: none;
+  background:
+    radial-gradient(620px 260px at 12% -10%, rgba(11,108,242,.22), transparent 60%),
+    radial-gradient(520px 240px at 88% 118%, rgba(125,224,193,.12), transparent 60%);
+}
+
+.site-footer .container { position: relative; }
+
+/* ---------- brand column ---------- */
+.footer-brand { max-width: 340px; }
+.footer-brandlink { display: inline-block; margin-bottom: 14px; }
+.footer-brandlink .brand-name { color: #fff; font-size: 1.15rem; }
+.footer-logo-plate {
+  display: inline-flex; align-items: center; justify-content: center;
+  padding: 9px; background: #FFFFFF; border-radius: 12px;
+  box-shadow: 0 6px 18px -6px rgba(0,0,0,.5);
+}
+.footer-logo-plate img { height: 52px; width: auto; display: block; }
+.footer-tagline {
+  font-size: 1.05rem; font-weight: 700; color: #7DE0C1; margin-bottom: 10px;
+  letter-spacing: -.01em;
+}
+.footer-blurb { font-size: .9rem; line-height: 1.6; color: #AFC2DA; margin-bottom: 18px; }
+.footer-connect {
+  font-size: .8rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+  color: #fff; margin: 0 0 10px; opacity: .95;
+}
+
+/* social / contact icons */
+.footer-social { display: flex; gap: 10px; flex-wrap: wrap; }
+.social-btn-ic {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 38px; height: 38px; border-radius: 10px;
+  background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12);
+  color: #C6D6E9; transition: background .18s ease, color .18s ease, transform .18s ease, border-color .18s ease;
+}
+.social-btn-ic:hover {
+  background: var(--brand-strong); border-color: var(--brand-strong);
+  color: #fff; transform: translateY(-2px); text-decoration: none;
+}
+.social-btn-ic .icon { width: 18px; height: 18px; }
+
+/* ---------- columns ---------- */
+.footer-grid--main {
+  display: grid;
+  grid-template-columns: 1.7fr 1fr 1fr 1fr;
+  gap: 36px;
+  padding: 56px 0 40px;
+}
+.footer-col h4 {
+  color: #fff; font-size: .8rem; font-weight: 700; letter-spacing: .1em;
+  text-transform: uppercase; margin-bottom: 16px; opacity: .95;
+}
+.footer-col a {
+  position: relative; display: inline-block; padding: 5px 0;
+  color: #AFC2DA; font-size: .9rem; text-decoration: none;
+  transition: color .18s ease, transform .18s ease;
+}
+.footer-col a::after {
+  content: ""; position: absolute; left: 0; bottom: 3px; height: 1.5px; width: 100%;
+  background: linear-gradient(90deg, #4C8DF6, #7DE0C1);
+  transform: scaleX(0); transform-origin: left; transition: transform .22s ease;
+}
+.footer-col a:hover { color: #fff; transform: translateX(3px); text-decoration: none; }
+.footer-col a:hover::after { transform: scaleX(1); }
+
+/* ---------- bottom bar ---------- */
+.footer-bottom {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap;
+  padding: 18px 0; border-top: 1px solid rgba(255,255,255,.1);
+  font-size: .82rem; color: #8AA3C0;
+}
+.footer-bottom-links { display: inline-flex; align-items: center; gap: 10px; }
+.footer-bottom-links a { color: #B9CCE4; text-decoration: none; transition: color .15s ease; }
+.footer-bottom-links a:hover { color: #fff; text-decoration: underline; }
+.footer-bottom-links .sep { color: rgba(255,255,255,.25); }
+
+.footer-note {
+  font-size: .78rem; color: #7E97B8; padding: 0 0 22px; line-height: 1.55;
+  border-top: none;
+}
+
+/* ---------- responsive ---------- */
+@media (max-width: 1080px) {
+  .footer-grid--main { grid-template-columns: 1fr 1fr; gap: 28px; }
+}
+@media (max-width: 560px) {
+  .footer-grid--main { grid-template-columns: 1fr; gap: 26px; padding-top: 44px; }
+  .footer-bottom { flex-direction: column; align-items: flex-start; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .footer-col a::after, .footer-col a, .social-btn-ic { transition: none !important; }
+}

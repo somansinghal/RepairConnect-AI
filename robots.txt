@@ -1,0 +1,24 @@
+# RepairConnect AI — robots.txt
+# https://repairconnect-ai.vercel.app/
+
+User-agent: *
+Allow: /
+
+# Private / authenticated application pages (also carry meta robots "noindex").
+# These are user workspaces and must never be search landing pages.
+Disallow: /dashboard
+Disallow: /profile
+Disallow: /analyze
+Disallow: /diagnosis
+Disallow: /repair-decision
+Disallow: /repairers
+Disallow: /compare
+Disallow: /request-repair
+Disallow: /tracking
+Disallow: /assistant
+Disallow: /login
+Disallow: /signup
+
+# The Google Search Console verification file MUST remain reachable (not blocked).
+
+Sitemap: https://repairconnect-ai.vercel.app/sitemap.xml

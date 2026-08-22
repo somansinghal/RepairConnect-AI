@@ -1,0 +1,33 @@
+# Dependencies (screenshot/test tooling only — not part of the production site)
+node_modules/
+
+# Playwright browser cache
+~/.cache/ms-playwright/
+.ms-playwright/
+
+# Test artifacts
+test-results/
+playwright-report/
+.artifacts/
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+*.log
+
+# -----------------------------------------------------------------------------
+# Environment / secrets — NEVER commit real credentials
+# `.env.example` files contain placeholders only and ARE safe to commit.
+# -----------------------------------------------------------------------------
+.env
+.env.*
+!.env.example
+
+# Firebase Cloud Functions env (future backend)
+functions/.env
+functions/.env.*
+!functions/.env.example
+
+# Firebase service-account keys (if ever generated) — never commit
+*.service-account.json
+firebase-debug.log

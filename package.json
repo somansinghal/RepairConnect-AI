@@ -1,0 +1,24 @@
+{
+  "name": "repairconnect-ai",
+  "version": "1.0.0",
+  "private": true,
+  "description": "RepairConnect AI — AI-powered repair decision and repair-connection platform (frontend). Don't replace it. Repair it.",
+  "scripts": {
+    "serve": "python3 -m http.server 8080",
+    "screenshots": "node scripts/screenshots.js",
+    "screenshots:desktop": "node scripts/screenshots.js --desktop",
+    "screenshots:mobile": "node scripts/screenshots.js --mobile",
+    "record": "node scripts/record-demo.js",
+    "test:unit": "node scripts/unit-test.js",
+    "audit": "node scripts/audit.js"
+  },
+  "devDependencies": {
+    "playwright": "^1.47.0"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "leaflet": "^1.9.4"
+  }
+}

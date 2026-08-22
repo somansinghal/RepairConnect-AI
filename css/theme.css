@@ -1,0 +1,197 @@
+/* ==========================================================================
+   RepairConnect AI — Theme (Light / Dark / System)
+   Light values live in global.css :root tokens. Dark overrides follow.
+   `data-theme` is set before first paint by js/theme-init.js.
+   ========================================================================== */
+
+/* ---------- Dark theme token overrides ---------- */
+:root { color-scheme: light; }
+[data-theme="dark"] { color-scheme: dark; }
+
+/* Subtle cross-fade while switching themes (removed for reduced motion). */
+html.theme-transition,
+html.theme-transition *,
+html.theme-transition *::before,
+html.theme-transition *::after {
+  transition: background-color .3s ease, color .3s ease, border-color .3s ease, fill .3s ease, box-shadow .3s ease !important;
+}
+@media (prefers-reduced-motion: reduce) {
+  html.theme-transition,
+  html.theme-transition *,
+  html.theme-transition *::before,
+  html.theme-transition *::after { transition: none !important; }
+}
+
+[data-theme="dark"] {
+  --bg: #0B1424;
+  --surface: #121E33;
+  --border: #22304A;
+  --border-strong: #2E3F5C;
+
+  --ink: #E6EDF7;
+  --heading: #F0F5FB;
+  --muted: #9AA8BF;
+  --muted-2: #6E7E98;
+
+  --brand: #4C8DF6;
+  --brand-strong: #2F74E8;
+  --brand-dark: #2563EB;
+  --brand-tint: #152A4D;
+  --brand-tint-2: #1D3A6B;
+
+  --success: #34D399;
+  --success-tint: #0D2B22;
+  --warn: #FBBF24;
+  --warn-tint: #2B2110;
+  --danger: #F87171;
+  --danger-tint: #2C1414;
+  --info: #60A5FA;
+  --info-tint: #112542;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, .4), 0 1px 3px rgba(0, 0, 0, .45);
+  --shadow-md: 0 8px 20px -8px rgba(0, 0, 0, .55);
+  --shadow-lg: 0 24px 48px -24px rgba(0, 0, 0, .65);
+}
+
+/* ---------- Headings & text that used the navy heading color ---------- */
+[data-theme="dark"] h1,
+[data-theme="dark"] h2,
+[data-theme="dark"] h3,
+[data-theme="dark"] h4,
+[data-theme="dark"] strong,
+[data-theme="dark"] .card-title,
+[data-theme="dark"] .tl-item .tl-title,
+[data-theme="dark"] .meter-ring .ring-num,
+[data-theme="dark"] .kv dd,
+[data-theme="dark"] .bar-row .bar-top .val,
+[data-theme="dark"] .cmp-table tbody th,
+[data-theme="dark"] .stat .num,
+[data-theme="dark"] .mock-row .v,
+[data-theme="dark"] .float-chip,
+[data-theme="dark"] .device-tile .dev-name,
+[data-theme="dark"] .diag-item .diag-title,
+[data-theme="dark"] .quick-action .qa-title,
+[data-theme="dark"] .analysis-check .ac-row.done,
+[data-theme="dark"] .metric .m-val,
+[data-theme="dark"] .provider-name,
+[data-theme="dark"] .provider-rating .r,
+[data-theme="dark"] .cost-box .c-val,
+[data-theme="dark"] .status-hero .sh-title,
+[data-theme="dark"] .context-card .cc-v,
+[data-theme="dark"] .chat-head .bot-title,
+[data-theme="dark"] .toggle-row .t-lbl,
+[data-theme="dark"] .request-summary .rs-v,
+[data-theme="dark"] .field label,
+[data-theme="dark"] .chip,
+[data-theme="dark"] .step h3,
+[data-theme="dark"] .feature-card h3,
+[data-theme="dark"] .brand-name {
+  color: var(--heading);
+}
+
+[data-theme="dark"] ::selection { background: #1D3A6B; color: #EAF2FE; }
+
+/* ---------- Header / nav ---------- */
+[data-theme="dark"] .site-header {
+  background: rgba(11, 20, 36, .92);
+  border-bottom-color: var(--border);
+}
+[data-theme="dark"] .btn-outline { color: var(--heading); }
+[data-theme="dark"] .btn-ghost { color: var(--heading); }
+[data-theme="dark"] .btn-ghost:hover { background: var(--brand-tint); color: #A9CDFF; }
+[data-theme="dark"] .btn-light { background: #1E2C47; color: var(--heading); }
+[data-theme="dark"] .btn-light:hover { background: #263a5c; }
+[data-theme="dark"] .nav-link { color: var(--ink); }
+[data-theme="dark"] .nav-toggle { color: var(--heading); border-color: var(--border-strong); }
+[data-theme="dark"] .social-btn { color: var(--heading); }
+[data-theme="dark"] .tab:hover { color: var(--heading); }
+
+/* ---------- Hardcoded light surfaces ---------- */
+[data-theme="dark"] .map-shell { background: #101B2E; }
+[data-theme="dark"] .skeleton { background: #1B2840; }
+[data-theme="dark"] .skeleton::after {
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.08), transparent);
+}
+[data-theme="dark"] .mock-thumb { background: #14213A; }
+[data-theme="dark"] .badge-neutral { background: #22314D; color: var(--muted); }
+
+/* ---------- Meter / progress / bars ---------- */
+[data-theme="dark"] .meter-ring { background: conic-gradient(var(--success) calc(var(--val) * 1%), #22314A 0); }
+[data-theme="dark"] .bar { background: #22314A; }
+
+/* ---------- Alerts / badges text contrast ---------- */
+[data-theme="dark"] .alert-info p { color: #B8D0F0; }
+[data-theme="dark"] .alert-warn p { color: #F3D9A4; }
+[data-theme="dark"] .alert-danger p { color: #F3BFBF; }
+[data-theme="dark"] .alert-success p { color: #A9E8CD; }
+
+[data-theme="dark"] .badge-success { color: #7CE7C0; }
+[data-theme="dark"] .badge-warn { color: #FCD34D; }
+[data-theme="dark"] .badge-danger { color: #FCA5A5; }
+[data-theme="dark"] .badge-info { color: #93C5FD; }
+
+/* ---------- Map (Leaflet) controls — dark-mode theming ---------- */
+[data-theme="dark"] .leaflet-bar { border-color: var(--border-strong); }
+[data-theme="dark"] .leaflet-control-zoom a {
+  background: var(--surface); color: var(--heading);
+  border-bottom-color: var(--border-strong);
+}
+[data-theme="dark"] .leaflet-control-zoom a:hover { background: var(--brand-tint); }
+[data-theme="dark"] .leaflet-control-attribution {
+  background: rgba(11, 20, 36, .82); color: var(--muted);
+}
+[data-theme="dark"] .leaflet-control-attribution a { color: #A9CDFF; }
+
+/* Comparison table — best-match column highlight */
+[data-theme="dark"] .cmp-table .col-best { background: rgba(15, 169, 104, .07); }
+[data-theme="dark"] .cmp-table .col-best th { background: rgba(15, 169, 104, .12); }
+
+/* ---------- Misc component tweaks ---------- */
+[data-theme="dark"] .suggest { color: #A9CDFF; }
+[data-theme="dark"] .ratio-band .r-lbl { color: #B8D0F0; }
+[data-theme="dark"] .step-num { background: var(--brand-tint); color: #A9CDFF; }
+[data-theme="dark"] .status-hero { border-color: #4A3A1A; }
+[data-theme="dark"] .toast { background: #1E2C47; }
+[data-theme="dark"] .analysis-check .ac-row { color: var(--muted); }
+[data-theme="dark"] .asp-step { color: var(--muted-2); }
+[data-theme="dark"] .asp-step.on { color: var(--brand); }
+[data-theme="dark"] .crumb a { color: var(--muted); }
+[data-theme="dark"] .hero-point { color: var(--muted); }
+
+/* ---------- Theme toggle button ---------- */
+.theme-toggle {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 38px; height: 38px; border-radius: 10px; flex: none;
+  background: transparent; border: 1px solid var(--border-strong);
+  color: var(--heading); cursor: pointer; transition: background .15s ease, color .15s ease, border-color .15s ease;
+}
+.theme-toggle:hover { background: var(--brand-tint); border-color: var(--brand); color: var(--brand); }
+.theme-toggle .icon { width: 18px; height: 18px; transition: transform .2s ease, opacity .2s ease; }
+.theme-toggle:active .icon { transform: rotate(-12deg) scale(.92); }
+.theme-toggle .i-sun { display: none; }
+.theme-toggle .i-moon { display: none; }
+.theme-toggle .i-system { display: none; }
+[data-theme="light"] .theme-toggle .i-sun { display: block; }
+[data-theme="dark"] .theme-toggle .i-moon { display: block; }
+[data-theme-pref="system"] .theme-toggle .i-system { display: block; }
+[data-theme-pref="system"] .theme-toggle .i-sun,
+[data-theme-pref="system"] .theme-toggle .i-moon { display: none; }
+
+/* ---------- Footer rich grid ---------- */
+.footer-grid--rich { grid-template-columns: 1.6fr 1fr 1fr 1fr 1.2fr; }
+.footer-tech { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+.footer-tech .chip {
+  background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.14);
+  color: #C6D6E9; font-size: .74rem; padding: 5px 11px;
+}
+[data-theme="dark"] .footer-tech .chip { background: rgba(255,255,255,.05); border-color: rgba(255,255,255,.12); color: #AFC2DA; }
+
+@media (max-width: 1080px) {
+  .footer-grid--rich { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 720px) {
+  .footer-grid--rich { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 480px) {
+  .footer-grid--rich { grid-template-columns: 1fr; }
+}

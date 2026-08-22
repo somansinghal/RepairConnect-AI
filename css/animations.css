@@ -1,0 +1,157 @@
+/* ==========================================================================
+   RepairConnect AI — Animations & micro-interactions
+   Lightweight, purposeful. Everything respects prefers-reduced-motion
+   (global rule in global.css collapses durations to ~0).
+   ========================================================================== */
+
+/* ---------- Scroll-reveal (JS adds .in when element enters view) ---------- */
+html.js .reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity .6s cubic-bezier(.2,.65,.3,1), transform .6s cubic-bezier(.2,.65,.3,1);
+}
+html.js .reveal.in { opacity: 1; transform: none; }
+html.js .reveal[data-delay="1"] { transition-delay: .08s; }
+html.js .reveal[data-delay="2"] { transition-delay: .16s; }
+html.js .reveal[data-delay="3"] { transition-delay: .24s; }
+html.js .reveal[data-delay="4"] { transition-delay: .32s; }
+
+/* ---------- Keyframes ---------- */
+@keyframes rc-fade-up { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: none; } }
+@keyframes rc-fade-in { from { opacity: 0; } to { opacity: 1; } }
+@keyframes rc-pop-in { from { opacity: 0; transform: scale(.96); } to { opacity: 1; transform: scale(1); } }
+@keyframes rc-floaty { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+@keyframes rc-scanline { 0% { top: -4%; } 50% { top: 96%; } 100% { top: -4%; } }
+@keyframes rc-pulse-ring { 0% { box-shadow: 0 0 0 0 rgba(11,108,242,.35); } 100% { box-shadow: 0 0 0 12px rgba(11,108,242,0); } }
+@keyframes rc-pin-drop { from { opacity: 0; transform: translate(-50%,-110%) scale(.35); } to { opacity: 1; transform: translate(-50%,-100%) scale(1); } }
+@keyframes rc-msg-in { from { opacity: 0; transform: translateY(10px) scale(.98); } to { opacity: 1; transform: none; } }
+@keyframes rc-draw-line { from { transform: scaleY(0); } to { transform: scaleY(1); } }
+@keyframes rc-shimmer { 100% { transform: translateX(100%); } }
+
+/* ---------- Hero entrance (on load) ---------- */
+.hero-copy > * { animation: rc-fade-up .6s cubic-bezier(.2,.65,.3,1) both; }
+.hero-copy > :nth-child(1) { animation-delay: .04s; }
+.hero-copy > :nth-child(2) { animation-delay: .1s; }
+.hero-copy > :nth-child(3) { animation-delay: .16s; }
+.hero-copy > :nth-child(4) { animation-delay: .24s; }
+.hero-copy > :nth-child(5) { animation-delay: .3s; }
+.hero-visual { animation: rc-pop-in .7s cubic-bezier(.2,.65,.3,1) both .18s; }
+
+/* Floating chips */
+.float-chip.chip-a { animation: rc-floaty 5.5s ease-in-out infinite; }
+.float-chip.chip-b { animation: rc-floaty 6.5s ease-in-out infinite 1.2s; }
+
+/* ---------- CTA / button micro-interactions ---------- */
+.btn { transition: background .16s ease, border-color .16s ease, transform .08s ease,
+         box-shadow .16s ease, color .16s ease; }
+.btn:hover { transform: translateY(-1px); }
+.btn:active { transform: translateY(0) scale(.98); }
+.btn-primary:hover, .btn-success:hover { box-shadow: 0 6px 16px -6px rgba(11,108,242,.5); }
+.btn-primary .icon, .btn-success .icon, .btn-outline .icon { transition: transform .18s ease; }
+.btn-primary:hover .icon, .btn-success:hover .icon, .btn-outline:hover .icon { transform: translateX(2px); }
+
+/* Card micro-interactions */
+.card { transition: box-shadow .2s ease, transform .2s ease, border-color .2s ease; }
+.card--hover:hover, .feature-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+.provider-card:hover, .device-tile:hover, .metric:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); border-color: var(--border-strong); }
+.diag-item:hover, .quick-action:hover { transform: translateY(-1px); }
+
+/* Input focus transitions */
+.input { transition: border-color .15s ease, box-shadow .15s ease, background .15s ease; }
+.dropzone { transition: border-color .16s ease, background .16s ease, transform .16s ease; }
+.dropzone:hover { transform: translateY(-1px); }
+
+/* Status badge transition */
+.badge { transition: background .2s ease, color .2s ease, border-color .2s ease, transform .15s ease; }
+
+/* Nav */
+.nav-link { transition: color .15s ease, background .15s ease, transform .15s ease; }
+.nav-link:hover { transform: translateY(-1px); }
+.main-nav { transition: max-height .25s ease, opacity .25s ease; }
+
+/* Toast + modal transitions (already defined) reused */
+
+/* ---------- Dashboard entrance ---------- */
+.dash-grid > * { animation: rc-fade-up .5s cubic-bezier(.2,.65,.3,1) both; }
+.dash-grid > :nth-child(2) { animation-delay: .1s; }
+.dash-stack > .card { animation: rc-fade-up .5s cubic-bezier(.2,.65,.3,1) both; }
+.dash-stack > .card:nth-child(2) { animation-delay: .08s; }
+.dash-stack > .card:nth-child(3) { animation-delay: .16s; }
+
+/* ---------- Diagnosis ---------- */
+.diag-hero > * { animation: rc-fade-up .5s ease both; }
+.diag-hero > :nth-child(2) { animation-delay: .1s; }
+.metric { animation: rc-fade-up .45s ease both; }
+.metric:nth-child(2) { animation-delay: .06s; }
+.metric:nth-child(3) { animation-delay: .12s; }
+.metric:nth-child(4) { animation-delay: .18s; }
+
+/* ---------- Repair vs Replace ---------- */
+.decision-hero > * { animation: rc-fade-up .5s ease both; }
+.decision-hero > :nth-child(2) { animation-delay: .12s; }
+.verdict-card .v-emoji { animation: rc-pop-in .5s cubic-bezier(.2,.65,.3,1) both .2s; }
+
+/* ---------- AI analysis scan visual ---------- */
+.scan-frame {
+  position: relative; width: 180px; height: 118px; margin: 0 auto 22px;
+  border-radius: 14px; overflow: hidden; background: #0A2540;
+  border: 1px solid rgba(255,255,255,.14); box-shadow: var(--shadow-md);
+  display: flex; align-items: center; justify-content: center; color: #7DE0C1;
+}
+.scan-frame .icon { width: 46px; height: 46px; opacity: .85; }
+.scan-beam {
+  position: absolute; left: 6%; right: 6%; height: 3px; border-radius: 999px;
+  background: linear-gradient(90deg, transparent, #7DE0C1, transparent);
+  box-shadow: 0 0 14px 2px rgba(125,224,193,.55);
+  animation: rc-scanline 2.4s ease-in-out infinite;
+}
+.scan-grid {
+  position: absolute; inset: 0; opacity: .25;
+  background-image: linear-gradient(rgba(125,224,193,.18) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(125,224,193,.18) 1px, transparent 1px);
+  background-size: 18px 18px;
+}
+
+/* ---------- Repairers map + cards ---------- */
+.map-pin { animation: rc-pin-drop .45s cubic-bezier(.2,.8,.3,1.2) both; }
+.map-pin:nth-of-type(2) { animation-delay: .05s; }
+.map-pin:nth-of-type(3) { animation-delay: .1s; }
+.map-pin:nth-of-type(4) { animation-delay: .15s; }
+.map-pin:nth-of-type(5) { animation-delay: .2s; }
+.map-pin:nth-of-type(6) { animation-delay: .25s; }
+.map-shell { transition: box-shadow .25s ease; }
+.map-shell:hover { box-shadow: var(--shadow-md); }
+
+.provider-card { animation: rc-fade-up .4s ease both; }
+.provider-card:nth-child(2) { animation-delay: .05s; }
+.provider-card:nth-child(3) { animation-delay: .1s; }
+.provider-card:nth-child(4) { animation-delay: .15s; }
+.provider-card:nth-child(5) { animation-delay: .2s; }
+
+/* ---------- Tracking timeline ---------- */
+.tl-item { animation: rc-fade-up .45s ease both; }
+.tl-item:nth-child(2) { animation-delay: .07s; }
+.tl-item:nth-child(3) { animation-delay: .14s; }
+.tl-item:nth-child(4) { animation-delay: .21s; }
+.tl-item:nth-child(5) { animation-delay: .28s; }
+.tl-item:nth-child(6) { animation-delay: .35s; }
+.tl-item:nth-child(7) { animation-delay: .42s; }
+.tl-item.current .tl-node { animation: rc-pulse-ring 1.8s ease-out infinite; }
+
+/* ---------- AI Assistant ---------- */
+.msg { animation: rc-msg-in .3s ease both; }
+.msg-ai.typing { animation: none; }
+.suggest { transition: background .16s ease, border-color .16s ease, transform .16s ease, color .16s ease; }
+.suggest:hover { background: var(--brand-tint-2); transform: translateY(-1px); }
+.suggest:active { transform: scale(.98); }
+.chat-card { transition: box-shadow .2s ease; }
+
+/* ---------- Request success ---------- */
+.success-panel .sp-icon { animation: rc-pop-in .5s cubic-bezier(.2,.65,.3,1) both; }
+.success-panel h2, .success-panel p, .success-panel .kv, .success-panel .row { animation: rc-fade-up .45s ease both .1s; }
+
+/* ---------- Compare ---------- */
+.cmp-wrap { animation: rc-fade-up .5s ease both; }
+
+/* ---------- Hero mock card subtle life ---------- */
+.mock-card { animation: rc-pop-in .7s cubic-bezier(.2,.65,.3,1) both .18s; }

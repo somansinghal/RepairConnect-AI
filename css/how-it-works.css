@@ -1,0 +1,44 @@
+/* ==========================================================================
+   RepairConnect AI — How It Works page (interactive step navigation)
+   ========================================================================== */
+.wi-layout { display: grid; grid-template-columns: 300px 1fr; gap: 22px; align-items: start; }
+.wi-steps { display: flex; flex-direction: column; gap: 8px; }
+.wi-step {
+  display: flex; align-items: center; gap: 12px; text-align: left;
+  background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
+  padding: 13px 15px; cursor: pointer; font-family: inherit; width: 100%;
+  transition: border-color .16s ease, background .16s ease, transform .16s ease, box-shadow .16s ease;
+}
+.wi-step .wi-num {
+  width: 30px; height: 30px; border-radius: 50%; flex: none;
+  background: var(--brand-tint); color: var(--brand-strong);
+  display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: .82rem;
+  transition: background .16s ease, color .16s ease;
+}
+.wi-step .wi-label { font-weight: 700; font-size: .9rem; color: var(--navy); }
+[data-theme="dark"] .wi-step .wi-label { color: var(--heading); }
+.wi-step:hover { border-color: var(--brand); transform: translateX(3px); }
+.wi-step.active { background: var(--brand-tint); border-color: var(--brand); box-shadow: var(--shadow-sm); }
+.wi-step.active .wi-num { background: var(--brand); color: #fff; }
+.wi-detail {
+  position: sticky; top: 84px;
+  background: var(--surface); border: 1px solid var(--border); border-radius: 16px;
+  padding: 26px 28px; box-shadow: var(--shadow-sm); min-height: 260px;
+}
+.wi-detail .wd-step {
+  font-size: .78rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--brand-strong); margin-bottom: 8px;
+}
+.wi-detail h2 { font-size: 1.4rem; margin-bottom: 10px; }
+.wi-detail p { color: var(--muted); font-size: .98rem; line-height: 1.7; }
+.wi-detail .wd-note {
+  margin-top: 16px; font-size: .84rem; color: var(--warn); background: var(--warn-tint);
+  border-radius: 10px; padding: 10px 14px;
+}
+@media (max-width: 860px) {
+  .wi-layout { grid-template-columns: 1fr; }
+  .wi-detail { position: static; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .wi-step, .wi-step .wi-num { transition: none !important; }
+}

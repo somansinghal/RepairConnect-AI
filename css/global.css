@@ -1,0 +1,180 @@
+/* ==========================================================================
+   RepairConnect AI — Global styles (tokens, reset, base, layout, utilities)
+   Design language: Technology + Trust + Repair + Sustainability
+   ========================================================================== */
+
+:root {
+  /* Brand (derived from the RepairConnect AI logo) */
+  --brand: #0B6CF2;
+  --brand-strong: #0A5FE0;
+  --brand-dark: #084FB4;
+  --brand-tint: #EAF2FE;
+  --brand-tint-2: #D9E8FF;
+
+  /* Ink / navy */
+  --navy: #011B3A;
+  --navy-2: #0A2540;
+  --ink: #10233B;
+  --muted: #5C6B82;
+  --muted-2: #8A97AB;
+
+  /* Surfaces */
+  --surface: #FFFFFF;
+  --bg: #F5F8FC;
+  --border: #E2E9F2;
+  --border-strong: #C9D6E6;
+
+  /* Semantic */
+  --success: #0FA968;
+  --success-tint: #E7F7F0;
+  --warn: #C97A0A;
+  --warn-tint: #FDF1E0;
+  --danger: #DC2626;
+  --danger-tint: #FCEDED;
+  --info: #0B6CF2;
+  --info-tint: #EAF2FE;
+
+  /* Elevation */
+  --shadow-sm: 0 1px 2px rgba(1, 27, 58, .05), 0 1px 3px rgba(1, 27, 58, .07);
+  --shadow-md: 0 8px 20px -8px rgba(1, 27, 58, .18);
+  --shadow-lg: 0 24px 48px -24px rgba(1, 27, 58, .28);
+
+  /* Geometry */
+  --radius-sm: 8px;
+  --radius: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 22px;
+  --radius-pill: 999px;
+
+  --maxw: 1180px;
+  --header-h: 66px;
+
+  --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
+          Arial, "Noto Sans", sans-serif;
+}
+
+/* ---------- Reset ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+* { margin: 0; }
+
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+
+body {
+  font-family: var(--font);
+  font-size: 15.5px;
+  line-height: 1.55;
+  color: var(--ink);
+  background: var(--bg);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+main { flex: 1 0 auto; }
+
+img, svg, video { display: block; max-width: 100%; }
+img { height: auto; }
+a { color: var(--brand-strong); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+h1, h2, h3, h4 {
+  color: var(--navy);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  font-weight: 700;
+}
+h1 { font-size: clamp(2rem, 4.4vw, 3.1rem); }
+h2 { font-size: clamp(1.55rem, 3vw, 2.1rem); }
+h3 { font-size: 1.15rem; }
+h4 { font-size: 1rem; }
+
+p { color: var(--ink); }
+
+strong { color: var(--navy); }
+
+:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+::selection { background: var(--brand-tint-2); color: var(--navy); }
+
+/* ---------- Layout ---------- */
+.container {
+  width: 100%;
+  max-width: var(--maxw);
+  margin-inline: auto;
+  padding-inline: 20px;
+}
+
+.section { padding-block: clamp(3.2rem, 7vw, 5.2rem); }
+.section--tint { background: var(--surface); }
+.section--navy {
+  background: linear-gradient(160deg, var(--navy) 0%, #06306B 100%);
+  color: #EAF1FB;
+}
+.section--navy h2, .section--navy h3, .section--navy p { color: #EAF1FB; }
+
+.section-head { max-width: 720px; margin-bottom: 2.4rem; }
+.section-head.center { margin-inline: auto; text-align: center; }
+.section-head .kicker {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: .8rem; font-weight: 700; letter-spacing: .08em;
+  text-transform: uppercase; color: var(--brand-strong);
+  margin-bottom: 12px;
+}
+.section-head p { color: var(--muted); margin-top: 10px; font-size: 1.02rem; }
+
+.grid { display: grid; gap: 20px; }
+.grid > * { min-width: 0; }
+.grid-2 { grid-template-columns: repeat(2, 1fr); }
+.grid-3 { grid-template-columns: repeat(3, 1fr); }
+.grid-4 { grid-template-columns: repeat(4, 1fr); }
+
+.stack > * + * { margin-top: 16px; }
+.row { display: flex; align-items: center; gap: 12px; }
+.row.between { justify-content: space-between; }
+.row.wrap { flex-wrap: wrap; }
+
+.muted { color: var(--muted); }
+.small { font-size: .86rem; }
+.tiny { font-size: .78rem; }
+.center { text-align: center; }
+.nowrap { white-space: nowrap; }
+.hidden { display: none !important; }
+
+.mt-8 { margin-top: 8px; } .mt-16 { margin-top: 16px; }
+.mt-24 { margin-top: 24px; } .mt-32 { margin-top: 32px; }
+.mb-16 { margin-bottom: 16px; } .mb-24 { margin-bottom: 24px; }
+.mb-32 { margin-bottom: 32px; }
+
+/* ---------- Skip link ---------- */
+.skip-link {
+  position: absolute; left: 12px; top: -48px; z-index: 1000;
+  background: var(--navy); color: #fff; padding: 10px 16px;
+  border-radius: 8px; transition: top .15s ease;
+}
+.skip-link:focus { top: 12px; }
+
+/* ---------- Motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ---------- Responsive helpers ---------- */
+@media (max-width: 980px) {
+  .grid-4 { grid-template-columns: repeat(2, 1fr); }
+  .grid-3 { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 620px) {
+  .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+  .container { padding-inline: 16px; }
+}

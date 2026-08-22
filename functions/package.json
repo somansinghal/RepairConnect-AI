@@ -1,0 +1,12 @@
+{
+  "name": "repairconnect-ai-functions",
+  "version": "1.0.0",
+  "private": true,
+  "description": "RepairConnect AI — secure backend (Cloud Functions): AI bridge + storage + business logic.",
+  "main": "index.js",
+  "engines": { "node": "18" },
+  "dependencies": {
+    "firebase-admin": "^12.1.0",
+    "firebase-functions": "^5.0.1"
+  }
+}
