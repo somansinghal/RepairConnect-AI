@@ -110,6 +110,8 @@ window.RC = window.RC || {};
   RC.getParam = function (name) {
     return new URLSearchParams(window.location.search).get(name);
   };
+<<<<<<< HEAD
+=======
 
   /* ---------- Demo session (shared, available on every page) ----------
      The auth guard treats a stored demo session as "signed in" in DEMO mode.
@@ -130,4 +132,5 @@ window.RC = window.RC || {};
     }
     return { enter: enter, clear: clear, KEY: KEY };
   })();
+>>>>>>> 28c9ed7f1c972dcc2dd6035eba09b3a09345a356
 })();

@@ -5,11 +5,20 @@
    functionality initializes. This is a UX/security layer — the real boundary
    remains Firebase Auth + Firestore Security Rules.
 
+<<<<<<< HEAD
+   Firebase Authentication is the ONLY authentication provider:
+   • LIVE mode (Firebase configured): waits for Firebase's auth-state
+     listener (no premature redirect, no flicker) with a safety cap so it can
+     never hang on "Checking your session…".
+   • Not configured / not authenticated: redirect to Login. There is NO
+     demo-session bypass — no localStorage key, no guest access, no fake user.
+=======
    Auth state is centralized: AUTH_LOADING → AUTHENTICATED | UNAUTHENTICATED.
    • LIVE mode: waits for Firebase's auth-state listener (no premature
      redirect, no flicker) with a safety cap so it can never hang.
    • DEMO mode: a stored demo session counts as "signed in"; with no session
      the user is treated as signed out and redirected to Login.
+>>>>>>> 28c9ed7f1c972dcc2dd6035eba09b3a09345a356
 
    Login/Signup are never redirected (no loops). The `next` destination is
    allow-listed to internal .html routes only (no open redirects).
@@ -88,9 +97,15 @@ RC.authGuard = (function () {
       return;
     }
 
+<<<<<<< HEAD
+    /* Firebase is not configured (or not live) — there is no authentication
+       to check, so protected pages redirect to Login. No bypass exists. */
+    settle(null);
+=======
     /* DEMO: session is in localStorage — resolves synchronously. */
     var user = RC.data ? RC.data.currentUser() : null;
     settle(user);
+>>>>>>> 28c9ed7f1c972dcc2dd6035eba09b3a09345a356
   }
 
   if (document.readyState === "loading") {

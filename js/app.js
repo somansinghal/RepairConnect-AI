@@ -25,6 +25,8 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
+<<<<<<< HEAD
+=======
   /* "Try Demo" entry — enters DEMO MODE (no real account) and navigates.
      Clearly labelled; does not touch authentication architecture.
      Defensive: only navigate to an allow-listed internal page. */
@@ -45,6 +47,7 @@ document.addEventListener("DOMContentLoaded", function () {
     done.then(function () { window.location.href = href; });
   });
 
+>>>>>>> 28c9ed7f1c972dcc2dd6035eba09b3a09345a356
   /* Dispatch to the page module named by <body data-page="...">.
      Kebab-case page keys are normalized to camelCase namespace keys. */
   var pageKey = document.body.getAttribute("data-page");

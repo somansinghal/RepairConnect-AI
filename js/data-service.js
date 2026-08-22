@@ -57,6 +57,21 @@ RC.data = (function () {
       if (u) return { uid: u.uid, email: u.email, name: u.displayName, photoURL: u.photoURL };
       return null; // live but signed out
     }
+<<<<<<< HEAD
+    /* Firebase is the only authentication provider. Without a configured
+       Firebase project there is no signed-in user — never a fabricated one. */
+    return null;
+  }
+
+  function notConfigured() {
+    var e = new Error("AUTH_NOT_CONFIGURED");
+    e.code = "config/not-configured";
+    return Promise.reject(e);
+  }
+
+  function signUp(name, email, password) {
+    if (!live) return notConfigured();
+=======
     /* DEMO mode: only a stored demo session counts as "signed in".
        Previously a default user was returned here, which made the auth
        guard treat every visitor as authenticated. */
@@ -80,6 +95,7 @@ RC.data = (function () {
         return { demo: true };
       });
     }
+>>>>>>> 28c9ed7f1c972dcc2dd6035eba09b3a09345a356
     return RC.fb.auth.createUserWithEmailAndPassword(email, password)
       .then(function (cred) {
         return cred.user.updateProfile({ displayName: name }).then(function () { return cred; });
@@ -88,6 +104,11 @@ RC.data = (function () {
   }
 
   function signIn(email, password) {
+<<<<<<< HEAD
+    /* Real Firebase email/password authentication only. No local password
+       comparison, no demo sign-in, no stored credentials. */
+    if (!live) return notConfigured();
+=======
     if (!live) {
       demoToast("Demo sign-in (Firebase not configured).");
       return delay(700).then(function () {
@@ -95,6 +116,7 @@ RC.data = (function () {
         return { demo: true };
       });
     }
+>>>>>>> 28c9ed7f1c972dcc2dd6035eba09b3a09345a356
     return RC.fb.auth.signInWithEmailAndPassword(email, password)
       .then(function (cred) { return RC.firestore.ensureUserDoc(cred.user); });
   }
@@ -107,6 +129,27 @@ RC.data = (function () {
     return RC.fb.auth.setPersistence(remember ? P.LOCAL : P.SESSION);
   }
 
+<<<<<<< HEAD
+  /* Google sign-in via Firebase popup (real integration). When Firebase is
+     not configured — or the Google provider isn't available — it rejects with
+     a clear message. It never throws synchronously and never pretends the
+     sign-in succeeded. */
+  function signInWithGoogle() {
+    if (!live) return Promise.reject(new Error("DEMO_MODE"));
+    try {
+      if (!firebase.auth || typeof firebase.auth.GoogleAuthProvider !== "function") {
+        return Promise.reject(new Error("GOOGLE_UNAVAILABLE"));
+      }
+      var provider = new firebase.auth.GoogleAuthProvider();
+      if (!RC.fb.auth || typeof RC.fb.auth.signInWithPopup !== "function") {
+        return Promise.reject(new Error("GOOGLE_UNAVAILABLE"));
+      }
+      return RC.fb.auth.signInWithPopup(provider)
+        .then(function (cred) { return RC.firestore.ensureUserDoc(cred.user); });
+    } catch (e) {
+      return Promise.reject(new Error("GOOGLE_UNAVAILABLE"));
+    }
+=======
   /* Google sign-in via Firebase popup (real integration; falls back to a
      friendly error when Firebase isn't configured). */
   function signInWithGoogle() {
@@ -117,6 +160,7 @@ RC.data = (function () {
     var provider = new firebase.auth.GoogleAuthProvider();
     return RC.fb.auth.signInWithPopup(provider)
       .then(function (cred) { return RC.firestore.ensureUserDoc(cred.user); });
+>>>>>>> 28c9ed7f1c972dcc2dd6035eba09b3a09345a356
   }
 
   function judgeSignIn() {
@@ -129,15 +173,23 @@ RC.data = (function () {
 
   function signOut() {
     if (live && RC.fb.auth) return RC.fb.auth.signOut();
+<<<<<<< HEAD
+    /* Not configured — nothing to sign out of. */
+=======
     demoWrite("user", null);
+>>>>>>> 28c9ed7f1c972dcc2dd6035eba09b3a09345a356
     return Promise.resolve();
   }
 
   function resetPassword(email) {
+<<<<<<< HEAD
+    if (!live) return notConfigured();
+=======
     if (!live) {
       demoToast("Demo mode — password reset is simulated (Firebase not configured).");
       return Promise.resolve();
     }
+>>>>>>> 28c9ed7f1c972dcc2dd6035eba09b3a09345a356
     return RC.fb.auth.sendPasswordResetEmail(email);
   }
 
@@ -153,29 +205,42 @@ RC.data = (function () {
 
   /* ---------------- profile / devices ---------------- */
   function updateProfile(name) {
+<<<<<<< HEAD
+    if (!live) return notConfigured();
+=======
     if (!live) {
       var u = demoRead("user", currentUser());
       u.name = name; demoWrite("user", u);
       demoToast("Profile updated (demo).");
       return Promise.resolve();
     }
+>>>>>>> 28c9ed7f1c972dcc2dd6035eba09b3a09345a356
     return RC.firestore.updateProfile(name);
   }
 
   function updatePreferences(prefs) {
+<<<<<<< HEAD
+    if (!live) return notConfigured();
+=======
     if (!live) {
       var u = demoRead("user", currentUser());
       u.preferences = prefs; demoWrite("user", u);
       demoToast("Preferences saved (demo).");
       return Promise.resolve();
     }
+>>>>>>> 28c9ed7f1c972dcc2dd6035eba09b3a09345a356
     return RC.firestore.updatePreferences(prefs);
   }
 
   function getPreferences() {
     if (!live) {
+<<<<<<< HEAD
+      /* No fake user profile exists without Firebase — return safe defaults. */
+      return Promise.resolve({
+=======
       var u = demoRead("user", currentUser());
       return Promise.resolve((u && u.preferences) || {
+>>>>>>> 28c9ed7f1c972dcc2dd6035eba09b3a09345a356
         emailNotifications: true, smsUpdates: false, sustainabilityTips: true
       });
     }
@@ -304,7 +369,11 @@ RC.data = (function () {
   return {
     init: init, isLive: isLive,
     currentUser: currentUser, signUp: signUp, signIn: signIn, judgeSignIn: judgeSignIn,
+<<<<<<< HEAD
+    signInWithGoogle: signInWithGoogle, setRememberMe: setRememberMe,
+=======
     signInWithGoogle: signInWithGoogle, setRememberMe: setRememberMe, enterDemo: enterDemo,
+>>>>>>> 28c9ed7f1c972dcc2dd6035eba09b3a09345a356
     signOut: signOut, resetPassword: resetPassword, onAuthChange: onAuthChange,
     updateProfile: updateProfile,
     updatePreferences: updatePreferences,
